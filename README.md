@@ -21,3 +21,7 @@ You may also see any lint errors in the console.
 ## npm install -g firebase-tools
 
 install firebase tools
+
+## Login
+ email:  promart@gmail.com
+ password: 123456
