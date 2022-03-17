@@ -63,6 +63,7 @@ const Login = () => {
             Log in
           </button>
           {!state.auth && !start && <p>Email or password incorrect</p>}
+          <p>Entrar con email: promart@gmail.com y password:123456</p>
           <a href="/">Forgot my password</a>
         </form>
         <button className="secondary-button signup-button">Sign up</button>
