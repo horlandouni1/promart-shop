@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Menu.scss";
-
+import AppContext from "../context/AppContext";
 const Menu = () => {
+  const { state, saveState } = useContext(AppContext);
+  let navigate = useNavigate();
+  const onClick1 = () => {
+    const newState = {
+      ...state,
+      email: "",
+      password: "",
+      auth: false,
+    };
+    saveState(newState);
+  };
   return (
     <div className="Menu">
       <ul>
         <li>
-          <a href="/" className="title">
+          <span className="title" onClick={() => navigate("/orders")}>
             My orders
-          </a>
+          </span>
         </li>
         <li>
-          <a href="/">My account</a>
+          <span>My account</span>
         </li>
         <li>
-          <a href="/">Sign out</a>
+          <span onClick={() => onClick1()}>Sign out</span>
         </li>
       </ul>
     </div>

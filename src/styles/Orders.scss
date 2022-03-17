@@ -2,24 +2,32 @@
 
 .Order {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
+  margin-bottom: 24px;
   align-items: center;
-  margin-bottom: 12px;
+
+  padding: 20px;
 }
-.Order p:nth-child(1) {
-  display: flex;
-  flex-direction: column;
+.Order figure {
+  margin: 0;
+  text-align: center;
 }
-.Order p span:nth-child(1) {
+.Order figure img {
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.Order p {
   font-size: var(--md);
   font-weight: bold;
 }
-.Order p span:nth-child(2) {
-  font-size: var(--sm);
-  color: var(--very-light-pink);
-}
-.Order p:nth-child(2) {
-  text-align: end;
-  font-weight: bold;
+.Order .order-delete {
+  text-align: center;
+  img {
+    width: 40px;
+    height: 40px;
+  }
 }

@@ -1,17 +1,23 @@
 import React, { useState, useContext } from "react";
 import "../styles/Header.scss";
+import { useNavigate } from "react-router-dom";
 import Menu from "@components/Menu";
 import MyOrder from "../containers/MyOrder";
 import logoMenu from "@icons/icon_menu.svg";
-import logoSale from "@logos/logo_yard_sale.svg";
+import logoSale from "@logos/promart_logo.png";
 import iconShop from "@icons/icon_shopping_cart.svg";
 import AppContext from "../context/AppContext";
 const Header = () => {
   const [toggle, setToggle] = useState(false);
   const [toggleOrders, setToggleOrders] = useState(false);
-  const { state } = useContext(AppContext);
+  let navigate = useNavigate();
+  const { state, setFilter } = useContext(AppContext);
   const handleToggle = () => {
     setToggle(!toggle);
+  };
+  const onClick = (categoria) => {
+    navigate("/");
+    setFilter(categoria);
   };
   return (
     <nav>
@@ -20,41 +26,42 @@ const Header = () => {
         <img src={logoSale} alt="logo" className="nav-logo" />
         <ul>
           <li>
-            <a href="/">All</a>
+            <span onClick={() => onClick("")}>All</span>
           </li>
           <li>
-            <a href="/">Clothes</a>
+            <span onClick={() => onClick("electronics")}>Electronics</span>
           </li>
           <li>
-            <a href="/">Electronics</a>
+            <span onClick={() => onClick("jewelery")}>Jewelery</span>
           </li>
           <li>
-            <a href="/">Furnitures</a>
+            <span onClick={() => onClick("men's clothing")}>men clothing</span>
           </li>
           <li>
-            <a href="/">Toys</a>
-          </li>
-          <li>
-            <a href="/">Others</a>
+            <span onClick={() => onClick("women's clothing")}>
+              women clothing
+            </span>
           </li>
         </ul>
       </div>
       <div className="navbar-right">
         <ul>
           <li className="navbar-email" onClick={handleToggle}>
-            platzi@example.com
+            Usuario
           </li>
           <li
             className="navbar-shopping-cart"
             onClick={() => setToggleOrders(!toggleOrders)}
           >
-            <img src={iconShop} alt="shopping cart" />
-            {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
+            {state.auth && <img src={iconShop} alt="shopping cart" />}
+            {state.auth && state.cart.length > 0 ? (
+              <div>{state.cart.length}</div>
+            ) : null}
           </li>
         </ul>
       </div>
       {toggle && <Menu />}
-      {toggleOrders && <MyOrder />}
+      {toggleOrders && <MyOrder setToggleOrders={setToggleOrders} />}
     </nav>
   );
 };

@@ -9,6 +9,7 @@
   position: absolute;
   top: 60px;
   right: 50px;
+  background-color: var(--white);
 }
 .Menu ul {
   list-style: none;
@@ -26,13 +27,15 @@
   padding-top: 20px;
   border-top: 1px solid var(--very-light-pink);
 }
-.Menu ul li:last-child a {
+.Menu ul li:last-child span {
   color: var(--hospital-green);
   font-size: var(--sm);
+  cursor: pointer;
 }
-.Menu ul li a {
+.Menu ul li span {
   color: var(--back);
   text-decoration: none;
   margin-bottom: 20px;
   display: inline-block;
+  cursor: pointer;
 }

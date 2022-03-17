@@ -3,6 +3,11 @@ nav {
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
+  position: fixed;
+  top: 0;
+  width: calc(100% - 48px);
+  background-color: aliceblue;
+  z-index: 1;
 }
 .menu {
   display: none;
@@ -25,13 +30,14 @@ nav {
 .navbar-left ul {
   margin-left: 12px;
 }
-.navbar-left ul li a,
-.navbar-right ul li a {
+.navbar-left ul li span,
+.navbar-right ul li span {
   text-decoration: none;
   color: var(--very-light-pink);
   border: 1px solid var(--white);
   padding: 8px;
   border-radius: 8px;
+  cursor: pointer;
 }
 .navbar-left ul li a:hover,
 .navbar-right ul li a:hover {

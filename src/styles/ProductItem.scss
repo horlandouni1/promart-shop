@@ -17,6 +17,7 @@
 }
 .product-info figure {
   margin: 0;
+  align-self: flex-start;
 }
 .product-info figure img {
   width: 35px;
@@ -29,10 +30,25 @@
   margin-bottom: 4px;
 }
 .product-info div p:nth-child(2) {
-  font-size: var(--sm);
+  font-size: var(--md);
   margin-top: 0;
   margin-bottom: 0;
   color: var(--very-light-pink);
+}
+.product-info div p:nth-child(3) {
+  font-size: var(--sm);
+  margin-top: 12px;
+  margin-bottom: 16px;
+  color: var(--very-light-pink);
+}
+.product-info span {
+  background-color: coral;
+  padding: 10px 12px;
+  cursor: pointer;
+  border-radius: 12 px;
+  &:hover {
+    background-color: cornflowerblue;
+  }
 }
 @media (max-width: 640px) {
   .cards-container {
